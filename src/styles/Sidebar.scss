@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0.35;
+  z-index: 10;
+  @media screen and (max-width: 768px) {
+      flex: 1;
+    &.active {
+      display: none;
+    }
+  }
+  
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  &-name{
+    color: #fff;
+    font-size: 25px;
+    font-weight: 800;
+  }
+  &-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 10vw;
+  }
+}
+
+.sidebar__search {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 10px;
+  height: 35px;
+  border-radius: 5px;
+  color: rgb(53, 214, 240);
+  border-left: 2px groove rgb(239, 242, 243);
+  border-right: 2px groove rgb(239, 242, 243);
+  box-shadow: 1px 1px 5px rgba(53, 214, 240, 0.1), -1px -1px 5px rgba(53, 214, 240, 0.1);
+  & > .MuiSvgIcon-root{
+    color: rgb(239, 242, 243);
+  }
+  & input{
+    border: none;
+    background: none;
+    width: 95%;
+    margin-left: 10px;
+    color: rgb(239, 242, 243);
+    font-family: "Russo One", sans-serif;
+  }
+}
+
+.sidebar__chats{
+  flex: 1;
+  background: linear-gradient(60deg, #011113, #031f22);
+  overflow: scroll;
+  border-radius: 0 0 0px 20px;
+}
+

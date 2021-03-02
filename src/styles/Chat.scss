@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+.chat {
+  display: flex;
+  flex: 0.65;
+  flex-direction: column;
+  border-radius: 20px;
+  font-family: "Russo One", sans-serif;
+  @media screen and (max-width: 768px) {
+      flex: 1;
+    &.active {
+      display: none;
+    }
+  }
+}
+
+.chat__header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  &-info{
+    flex: 1;
+    padding-left: 20px;
+    & > h3{
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+    & > p{
+      color: gray;
+    }
+  }
+  &-right{
+    display: flex;
+    justify-content: space-between;
+    min-width: 100px;
+  }
+}
+
+.chat__body{
+  flex: 1;
+  background: #222;
+  padding: 30px;
+  overflow: scroll;
+  position: relative;
+}
+
+.chat__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  background:#000;
+  border-top: 2px groove rgb(75, 240, 53);
+  border-bottom-right-radius: 10px;
+}

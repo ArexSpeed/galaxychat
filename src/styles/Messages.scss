@@ -1,0 +1,32 @@
+.message {
+  position: relative;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border-bottom: 2px groove white;
+  border-top: 2px groove white;
+  color: white;
+  border-radius: 10px;
+  width: fit-content;
+  &-reciever{
+    margin-left: auto;
+    background-color: rgba(0,0,0,.3);
+    color: rgba(53, 214, 240, 1);
+    border-bottom: 2px groove rgba(53, 214, 240, 1);
+    border-top: 2px groove rgba(53, 214, 240, 1);
+  }
+  
+  &-name {
+    position: absolute;
+    top: -15px;
+    font-weight: 800;
+    font-size: xx-small;
+  }
+  &-timestamp {
+    margin-left: 10px;
+    font-size: xx-small;
+  }
+  
+}
+
