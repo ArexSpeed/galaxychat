@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+.addChat__container{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 70vw;
+  height: 400px;
+  padding: 100px;
+  text-align: center;
+  background: linear-gradient(60deg, #011113, #031f22);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.12);
+  border-left: 5px groove rgba(53, 214, 240, 1);
+  border-right: 5px groove rgb(239, 242, 243);
+  color: rgba(53, 214, 240, 1);
+  z-index: 10;
+  overflow: scroll;
+}
+
+.addChat__form{
+  display: flex;
+  flex-direction: column;
+  &-bg{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+    width: 90%;
+    overflow: scroll;
+    &-item{
+      max-width: 250px;
+      max-height: 250px;
+      color:rgba(53, 214, 240, 1);
+      border-left: 2px groove rgba(53, 214, 240, 1);
+      border-right: 2px groove rgba(53, 214, 240, 1);
+      border-radius: 5px;
+      margin: 10px;
+      position: relative;
+    }
+    &-img{
+      max-width: 250px;
+      max-height: 250px;
+      overflow: hidden;
+    }
+    &-check{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      color:inherit;
+    }
+  }
+  
+}
+
+.addChat__input{
+  border: none;
+  background: rgba(0,0,0,.4);
+  color:rgba(53, 214, 240, 1);
+  border-top: 2px groove rgba(53, 214, 240, 1);
+  border-bottom: 2px groove rgba(53, 214, 240, 1);
+  border-radius: 5px;
+  margin: 20px;
+  font-size: 30px;
+  text-align: center;
+  font-family: "Russo One", sans-serif;
+}
+
+.addChat__userselect{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  &-delete{
+    font-size: 30px;
+    margin: auto 5px;
+    color:rgb(240, 53, 78);
+    cursor: pointer;
+  }
+  &-add{
+    font-size: 30px;
+    margin: auto 5px;
+    color:rgb(75, 240, 53);
+    cursor: pointer;
+  }
+}
+
+.addChat__userlist{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  max-height: 250px;
+  overflow: scroll;
+}
+.addChat__select{
+  border: none;
+  color:rgba(53, 214, 240, 1);
+  border-left: 2px groove rgba(53, 214, 240, 1);
+  border-right: 2px groove rgba(53, 214, 240, 1);
+  background: transparent;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.addChat__buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+.addChat__add, .addChat__cancel {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+  margin-top: 20px;
+  min-width: 40px;
+  min-height: 40px;
+  font-family: "Russo One", sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  color: rgb(75, 240, 53);
+  background:rgba(34, 107, 24, 0.5);
+  border-left: 2px groove rgb(75, 240, 53);
+  border-right: 2px groove rgb(75, 240, 53);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+  transition: all 0.35s;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  &::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #fff;
+    transition: all 0.35s;
+    border-radius: inherit;
+    background: linear-gradient( 61deg,rgb(75, 240, 53) 0%,rgb(60, 121, 3) 100%);
+    z-index: -1;
+  }
+  &:hover{
+    color: #202124;
+    &::after{
+      color: black;
+      width: 100%;
+    }
+  }
+  
+}
+
+.addChat__cancel{
+  background: rgba(161, 7, 7, 0.5);
+  color:rgba(0, 0, 0, 1);
+  border-left: 2px groove rgb(240, 53, 78);
+  border-right: 2px groove rgb(240, 53, 78);
+  &::after{
+    background: linear-gradient(61deg, rgb(240, 53, 78) 0%,rgb(121, 11, 3) 100%);
+  }
+}

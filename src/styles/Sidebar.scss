@@ -30,6 +30,32 @@
     justify-content: center;
     min-width: 10vw;
   }
+  &-colors{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 35px;
+    &-button{
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      margin: 5px;
+      background: black;
+      border: none;
+      &.color-blue{
+        background: blue;
+      }
+      &.color-green{
+        background: green;
+      }
+      &.color-red{
+        background: red;
+      }
+    }
+  }
+
 }
 
 .sidebar__search {
