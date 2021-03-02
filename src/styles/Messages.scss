@@ -9,7 +9,7 @@
   color: white;
   border-radius: 10px;
   width: fit-content;
-  &-reciever{
+  &__reciever{
     margin-left: auto;
     background-color: rgba(0,0,0,.3);
     color: rgba(53, 214, 240, 1);
@@ -17,13 +17,13 @@
     border-top: 2px groove rgba(53, 214, 240, 1);
   }
   
-  &-name {
+  &__name {
     position: absolute;
     top: -15px;
     font-weight: 800;
     font-size: xx-small;
   }
-  &-timestamp {
+  &__timestamp {
     margin-left: 10px;
     font-size: xx-small;
   }
