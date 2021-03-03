@@ -11,6 +11,27 @@ const EditChatBg = ({room}) => {
   const [editBox, setEditBox] = useState(false)
   const [roomData, setRoomData] = useState([])
   const [newBg, setNewBg] = useState('')
+
+  useEffect(() => {
+    if (room) {
+      db.collection("rooms")
+        .doc(room)
+        .onSnapshot(snapshot => setRoomData(snapshot.data()));
+    }
+  }, [room])
+  useEffect(() => {
+  setNewBg(roomData.background)
+  }, [roomData])
+
+  const editBg = () => {
+    db.collection("rooms").doc(room).update({
+      background: newBg,
+    });
+    setEditBox(!editBox)
+    console.log(newBg, "newName")
+  }
+
+
   return (
     <>
       <ImageIcon onClick={() => setEditBox(!editBox)} />
@@ -23,7 +44,7 @@ const EditChatBg = ({room}) => {
        <img src={bg} alt="bg" className="editChatBg__img" />
      </div>)}
      </div>
-     <butto className="editChatBg__button" onClick={() => console.log('ok')}>OK</butto>
+     <butto className="editChatBg__button" onClick={editBg}>OK</butto>
      </div>
       }
     </>

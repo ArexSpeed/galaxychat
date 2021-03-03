@@ -104,7 +104,7 @@ const deleteUserFromRoom = (user) => {
               <div className={`chat__addUsers ${color}`}>
                 {showUsersToAdd}
                 <div className="chat__addUsers-buttons">
-                  <button className="chat__addUsers-buttons-add" onClick={() => console.log('add')}>Add</button>
+                  <button className="chat__addUsers-buttons-add" onClick={addUsersToChat}>Add</button>
                   <button className="chat__addUsers-buttons-cancel" onClick={() => setOpenAddUsers(!openAddUsers)}>Cancel</button>
                 </div>
               </div>
