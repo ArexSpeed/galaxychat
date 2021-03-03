@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useStateValue } from "../StateProvider";
 import { Avatar, IconButton } from "@material-ui/core";
 import InvertColorsIcon from '@material-ui/icons/InvertColors';
@@ -7,12 +7,41 @@ import SearchOutlined from "@material-ui/icons/SearchOutlined";
 
 import SidebarChat from './SidebarChat'
 
-import {backgrounds} from './data'
+import db from '../firebase';
 import '../styles/Sidebar.scss';
 
 const Sidebar = () => {
   const [openColors, setOpenColors] = useState(false)
   const [{ user, active, color, usersList }, dispatch] = useStateValue();
+  const [rooms, setRooms] = useState([])
+  const [userRooms, setUserRooms] = useState([])
+
+  useEffect(() => {
+    const unsubscribe = db.collection('rooms').onSnapshot(snapshot => (
+      setRooms(
+        snapshot.docs.map(doc => ({
+          id: doc.id, 
+          name: doc.data().name,
+          users: doc.data().users,
+          background: doc.data().background,
+        }))
+      )
+    ))
+    return () => {
+      unsubscribe();
+    };
+  }, [])
+
+  useEffect(() => {
+    setUserRooms([])
+    rooms.filter(room => 
+      room.users.find(name => name.name === user.displayName) ? setUserRooms(prev => [...prev,room]) : ''
+    )
+    rooms.filter(room => 
+      room.users.length<1 ? setUserRooms(prev => [...prev,room]) : ''
+    )
+   }, [rooms])
+
 
   //Change color
   const changeColor = e => {
@@ -49,9 +78,10 @@ const Sidebar = () => {
       <div className={`sidebar__chats ${color}`}>
         <SidebarChat addNewChat />
 
-        <SidebarChat />
-        <SidebarChat bg={backgrounds[2]}/>
-        <SidebarChat />
+        {userRooms.map(room => (
+            <SidebarChat key={room.id} id={room.id} name={room.name} bg={room.background} />
+         ))}
+
       </div>
     </div>
   );
