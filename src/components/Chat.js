@@ -4,7 +4,6 @@ import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 
 import db from "../firebase";
-import firebase from "firebase";
 
 import Messages from './Messages';
 import EditChat from './EditChat';
@@ -28,7 +27,6 @@ const Chat = () => {
   const [usersToAdd, setUsersToAdd] = useState([]); //diffrence b'ween userInRoom and userList to show only user who are not in room
   const [messages, setMessages] = useState([]);
 
-  console.log(roomId, 'roomid')
   useEffect(() => {
     if (roomId) {
       db.collection("rooms")
@@ -122,7 +120,7 @@ const deleteUserFromRoom = (user) => {
       </div>
       <div className={`chat__footer ${color}`}>
       
-        <Footer />
+        <Footer roomId={roomId} />
       </div>
     </div>
   );
