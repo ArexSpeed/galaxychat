@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { useStateValue } from "../StateProvider";
 import { Avatar, IconButton } from "@material-ui/core";
 import InvertColorsIcon from '@material-ui/icons/InvertColors';
 import MoreVertIcon from "@material-ui/icons/MoreVert";
@@ -10,6 +11,16 @@ import '../styles/Sidebar.scss';
 
 const Sidebar = () => {
   const [openColors, setOpenColors] = useState(false)
+  const [{ user, active, color, usersList }, dispatch] = useStateValue();
+
+  //Change color
+  const changeColor = e => {
+    let colorVal = e.target.value;
+
+    dispatch({ type: "SET_COLOR", payload: colorVal });
+    
+    setOpenColors(!openColors)
+  };
   return (
     <div className="sidebar active">
       <div className="sidebar__header">
@@ -20,9 +31,9 @@ const Sidebar = () => {
           <InvertColorsIcon onClick={() => setOpenColors(!openColors)}/>
             {openColors && (
               <div className="sidebar__header-colors">
-                <button value='green' onClick={() => console.log('change')} className='sidebar__header-colors-button color-blue'></button>
-                <button value='red' onClick={() => console.log('change')} className='sidebar__header-colors-button color-green'></button>
-                <button value='blue' onClick={() => console.log('change')} className='sidebar__header-colors-button color-red'></button>
+                <button value='blue' onClick={changeColor} className='sidebar__header-colors-button color-blue'></button>
+                <button value='green' onClick={changeColor} className='sidebar__header-colors-button color-green'></button>
+                <button value='red' onClick={changeColor} className='sidebar__header-colors-button color-red'></button>
               </div>
             )}
           </IconButton>

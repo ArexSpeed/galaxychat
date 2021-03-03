@@ -1,20 +1,22 @@
 import React from 'react'
+import { useStateValue } from "../StateProvider";
 import CheckIcon from '@material-ui/icons/Check';
 import {backgrounds} from './data'
 
 import "../styles/AddChat.scss";
 
 const AddChat = ({open, setOpen}) => {
+  const [{ user, active, color, usersList }, dispatch] = useStateValue();
   return (
     open &&
-    <div className={`addChat__container`}>
+    <div className={`addChat__container ${color}`}>
       <form className="addChat__form" onSubmit={() => console.log('submit')}>
         <label htmlFor="roomName">Room Name:</label>
         <input
                 name="series"
                 label="series"
                 type="text"
-                className={`addChat__input`}
+                className={`addChat__input ${color}`}
                 value=''
                 onChange={(e) => console.log(e.target.value )}
               />
@@ -22,7 +24,7 @@ const AddChat = ({open, setOpen}) => {
        <label htmlFor="backgrounds">Background:</label> 
        <div className="addChat__form-bg" id="backgrounds">
        {backgrounds.map(bg => 
-       <div className={`addChat__form-bg-item `} onClick={() => console.log(bg)}>
+       <div className={`addChat__form-bg-item ${color} `} onClick={() => console.log(bg)}>
          {<span className="addChat__form-bg-check"><CheckIcon style={{fontSize: 40}} /></span>}
          <img src={bg} alt="bg" className="addChat__form-bg-img" />
        </div>)}
@@ -33,9 +35,9 @@ const AddChat = ({open, setOpen}) => {
       
        <div onClick={() => console.log('add user')} className="addChat__userselect-add">+</div>
         <div className="addChat__userlist">
-          <div className={`addChat__select`} onClick={() => console.log()}>Open Chat</div>
-          <div className={`addChat__select`} onClick={() => console.log()}>Speed</div>
-          <div className={`addChat__select`} onClick={() => console.log()}>Tomo Tom</div>
+          <div className={`addChat__select ${color}`} onClick={() => console.log()}>Open Chat</div>
+          <div className={`addChat__select ${color}`} onClick={() => console.log()}>Speed</div>
+          <div className={`addChat__select ${color}`} onClick={() => console.log()}>Tomo Tom</div>
         </div>
         <div className="addChat__buttons">
         <button type="submit" className="addChat__add">Add Room</button>

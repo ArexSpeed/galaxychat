@@ -1,5 +1,5 @@
 import React, {useState, useEffect}  from 'react'
-
+import { useStateValue } from "../StateProvider";
 import Messages from './Messages';
 import EditChat from './EditChat';
 import EditChatBg from './EditChatBg';
@@ -15,23 +15,23 @@ import "../styles/Chat.scss";
 
 const Chat = () => {
   const [openAddUsers, setOpenAddUsers] = useState(false); // box with users to add
-
+  const [{ user, active, color, usersList }, dispatch] = useStateValue();
 
   const showUsersToAdd = (  
       <>
       <input type="checkbox" id="Arek" className="chat__addUsers-input" onChange={(e) => console.log(e.target.value)} />
-      <label htmlFor="Arek" className={`chat__addUsers-label`}><span>Arek</span></label> 
+      <label htmlFor="Arek" className={`chat__addUsers-label ${color}`}><span>Arek</span></label> 
       <input type="checkbox" id="Tom" className="chat__addUsers-input" onChange={(e) => console.log(e.target.value)} />
-      <label htmlFor="Tom" className={`chat__addUsers-label`}><span>Tom</span></label> 
+      <label htmlFor="Tom" className={`chat__addUsers-label ${color}`}><span>Tom</span></label> 
       <input type="checkbox" id="Sven" className="chat__addUsers-input" onChange={(e) => console.log(e.target.value)} />
-      <label htmlFor="Sven" className={`chat__addUsers-label`}><span>Sven</span></label> 
+      <label htmlFor="Sven" className={`chat__addUsers-label ${color}`}><span>Sven</span></label> 
       </>  
   )
 
   return (
-    <div className="chat">
+    <div className={!active ? "chat active" : "chat"}>
       <div className="chat__header">
-        <div className={`chat__header-switch`}>
+        <div className={`chat__header-switch ${color}`}>
           <ListIcon />
         </div>
         <IconButton>
@@ -48,7 +48,7 @@ const Chat = () => {
           <IconButton>
           <GroupAddIcon onClick={() => setOpenAddUsers(!openAddUsers)}/>
             {openAddUsers && (
-              <div className={`chat__addUsers`}>
+              <div className={`chat__addUsers ${color}`}>
                 {showUsersToAdd}
                 <div className="chat__addUsers-buttons">
                   <button className="chat__addUsers-buttons-add" onClick={() => console.log('add')}>Add</button>
@@ -65,7 +65,7 @@ const Chat = () => {
       <div className="chat__body">
           <Messages />
       </div>
-      <div className="chat__footer">
+      <div className={`chat__footer ${color}`}>
       
         <Footer />
       </div>

@@ -39,3 +39,41 @@ $font-family: "Russo One", sans-serif;
   transition: all 0.35s;
   border-radius: inherit;
 }
+
+$colors: (
+  green: $green,
+  blue: $blue,
+  red: $red
+);
+$bgs: (
+  green: $background-green,
+  blue: $background-blue,
+  red: $background-red
+);
+
+@mixin theme{
+  @each $key, $val in $colors {
+    &.#{$key} {
+      color: $val;
+      border-left: $border $val;
+      border-right: $border $val;
+    }
+  }
+}
+@mixin themeInput{
+  @each $key, $val in $colors {
+    &.#{$key} {
+      color: $val;
+      border-top: $border $val;
+      border-bottom: $border $val;
+    }
+  }
+}
+
+@mixin themeBg{
+  @each $key, $val in $bgs {
+    &.#{$key} {
+      background: $val;
+    }
+  }
+}
