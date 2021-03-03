@@ -117,8 +117,8 @@ const deleteUserFromRoom = (user) => {
           </IconButton>
         </div>
       </div>
-      <div className="chat__body">
-          <Messages />
+      <div className={`chat__body`} style={{background: roomBg ? `url(${roomBg}) no-repeat center center / cover` : `#222`}}>
+        <Messages messages={messages} />
       </div>
       <div className={`chat__footer ${color}`}>
       
