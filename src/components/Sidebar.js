@@ -61,8 +61,8 @@ const Sidebar = () => {
   return (
     <div className={!active ? "sidebar" : "sidebar active"}>
       <div className="sidebar__header">
-        <Avatar />
-        <h3 className="sidebar__header-name">Arex</h3>
+        <Avatar src={user.photoURL} />
+        <h3 className="sidebar__header-name">{user.displayName}</h3>
         <div className="sidebar__header-right">
           <IconButton>
           <InvertColorsIcon onClick={() => setOpenColors(!openColors)}/>
