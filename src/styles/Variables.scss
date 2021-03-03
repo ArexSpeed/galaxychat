@@ -3,6 +3,9 @@ $green: rgba(75, 240, 53,1);
 $blue: rgba(53, 214, 240, 1);
 $red: rgb(240, 53, 78);
 $white: rgb(239, 242, 243);
+$buttonBg-blue: linear-gradient(61deg,rgba(53, 214, 240, 1) 0%,rgb(3, 20, 121) 100%);
+$buttonBg-green: linear-gradient(61deg, rgba(75, 240, 53,1) 0%,rgba(60, 121, 3,1) 100%);
+$buttonBg-red: linear-gradient(61deg,rgba(240, 53, 78,1) 0%,rgba(121, 11, 3,1) 100%);
 $background-green: linear-gradient(60deg, #011113, #032207);
 $background-blue: linear-gradient(60deg, #011113, #031f22);
 $background-red: linear-gradient(60deg, #130103, #240305);
@@ -50,6 +53,11 @@ $bgs: (
   blue: $background-blue,
   red: $background-red
 );
+$buttons: (
+  green: $buttonBg-green,
+  blue: $buttonBg-blue,
+  red: $buttonBg-red
+);
 
 @mixin theme{
   @each $key, $val in $colors {
@@ -57,6 +65,13 @@ $bgs: (
       color: $val;
       border-left: $border $val;
       border-right: $border $val;
+    }
+  }
+}
+@mixin themeCheck{
+  @each $key, $val in $colors {
+    &.#{$key} {
+      background: $val;
     }
   }
 }
@@ -73,6 +88,13 @@ $bgs: (
 @mixin themeBg{
   @each $key, $val in $bgs {
     &.#{$key} {
+      background: $val;
+    }
+  }
+}
+@mixin themeButton{
+  @each $key, $val in $buttons {
+    &.#{$key}::after {
       background: $val;
     }
   }

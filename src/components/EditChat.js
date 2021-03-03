@@ -13,9 +13,9 @@ const EditChat = ({room}) => {
     <div>
       <EditIcon onClick={() => setEditBox(!editBox)} />
       {editBox && 
-      (<form onSubmit={() => console.log('edit')} className={`editChat__form`}>
-        <input type="text" value={newName} onChange={(e) => setNewName(e.target.value)} className={`editChat__input`} />
-        <button type="submit" className={`editChat__button`}>
+      (<form onSubmit={() => console.log('edit')} className={`editChat__form ${color}`}>
+        <input type="text" value={newName} onChange={(e) => setNewName(e.target.value)} className="editChat__input" />
+        <button type="submit" className="editChat__button">
           <CheckIcon />
         </button>
       </form>)

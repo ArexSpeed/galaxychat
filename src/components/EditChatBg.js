@@ -15,10 +15,10 @@ const EditChatBg = ({room}) => {
     <>
       <ImageIcon onClick={() => setEditBox(!editBox)} />
       {editBox && 
-     <div className="editChatBg__container">
-     <div className="editChatBg__wrapper">
+     <div className={`editChatBg__container ${color}`}>
+     <div className={`editChatBg__wrapper ${color}`}>
      {backgrounds.map(bg => 
-     <div className='editChatBg__item' onClick={() => setNewBg(bg)}>
+     <div className={`editChatBg__item ${color}`} onClick={() => setNewBg(bg)}>
        {newBg === bg && <span className="editChatBg__check"><CheckIcon style={{fontSize: 40}} /></span>}
        <img src={bg} alt="bg" className="editChatBg__img" />
      </div>)}

@@ -1,4 +1,4 @@
-
+@import "Variables";
 .footer {
   &__form{
     flex: 1;
@@ -11,18 +11,24 @@
     padding: 10px;
     border: none;
     background: transparent;
-    color: rgba(53, 214, 240, 1);
-    border-bottom: 2px groove rgba(53, 214, 240, 1);
-    border-top: 2px groove rgba(53, 214, 240, 1);
-    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.1),
-      inset -1px -1px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: $box-shadow;
+    @include themeInput;
   }
   &__send{
     border: none;
     background: transparent;
-    color: rgba(53, 214, 240, 1);
+    color: inherit;
     margin: auto 10px;
     cursor: pointer;
+    &.blue{
+      color: $blue;
+    }
+    &.red{
+      color: $red;
+    }
+    &.green{
+      color: $green;
+    }
   }
   &__mic{
     width: 26px;
@@ -30,14 +36,40 @@
     border-radius: 26px;
     margin: auto 10px;
     padding: 10px;
-    color:rgba(53, 214, 240, 1);
-    border: 2px groove rgba(53, 214, 240, 1);
-    box-shadow: inset 1px 1px 5px rgba(53, 214, 240, 0.5),
-      inset -1px -1px 5px rgba(53, 214, 240, 0.5);
     cursor: pointer;
     position: relative;
     transition: all 0.35s ease-in-out;
     background: transparent;
     overflow: hidden;
+    &.blue{
+      color:$blue;
+      border: $border $blue;
+      box-shadow: inset 1px 1px 5px rgba(53, 214, 240, 0.5),
+        inset -1px -1px 5px rgba(53, 214, 240, 0.5);
+        &:hover{
+          background: rgba(53, 214, 240, 0.5);
+          transition: all 0.35s ease-in-out;
+        }
+    }
+    &.green{
+      color:$green;
+      border: $border $green;
+      box-shadow: inset 1px 1px 5px rgba(75, 240, 53, 0.5),
+        inset -1px -1px 5px rgba(75, 240, 53, .5);
+        &:hover{
+          background: rgba(75, 240, 53, 0.5);
+          transition: all 0.35s ease-in-out;
+        }
+    }
+    &.red{
+      color:$red;
+      border: $border $red;
+      box-shadow: inset 1px 1px 5px rgba(240, 53, 78, 0.5),
+        inset -1px -1px 5px rgba(240, 53, 78, 0.5);
+        &:hover{
+          background: rgba(240, 53, 78, 0.5);
+          transition: all 0.35s ease-in-out;
+        }
+    }
   }
 }

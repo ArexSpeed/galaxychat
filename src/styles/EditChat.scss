@@ -15,25 +15,23 @@
     z-index: 1;
     transition: all 0.35s;
     overflow: hidden;
-    color: rgba(53, 214, 240, 1);
-    background: linear-gradient(60deg, #011113, #031f22);
-    border-left: 2px groove rgba(53, 214, 240, 1);
-    border-right: 2px groove rgb(239, 242, 243);
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+    box-shadow: $box-shadow;
+    @include theme;
+    @include themeBg;
   }
   &__input{
-    color: rgba(53, 214, 240, 1);
     background: transparent;
     border: none;
     font-size: 24px;
     text-align: center;
     font-family: $font-family;
+    color: inherit;
   }
   &__button{
     background: transparent;
     border: none;
-    color: rgba(53, 214, 240, 1);
     cursor: pointer;
+    color: inherit;
   }
 }
 
@@ -56,11 +54,9 @@
   z-index: 1;
   transition: all 0.35s;
   overflow: hidden;
-  color: rgba(53, 214, 240, 1);
-  background: linear-gradient(60deg, #011113, #031f22);
-  border-left: 2px groove rgba(53, 214, 240, 1);
-  border-right: 2px groove rgb(239, 242, 243);
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+  box-shadow: $box-shadow;
+  @include theme;
+  @include themeBg;
 }
   &__wrapper{
     display: flex;
@@ -73,12 +69,10 @@
   &__item{
     max-width: 250px;
     max-height: 250px;
-    color:rgba(53, 214, 240, 1);
-    border-left: 2px groove rgba(53, 214, 240, 1);
-    border-right: 2px groove rgba(53, 214, 240, 1);
     border-radius: 5px;
     margin: 10px;
     position: relative;
+    @include theme;
   }
 
   &__img{

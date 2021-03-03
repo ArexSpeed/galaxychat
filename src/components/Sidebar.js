@@ -16,13 +16,12 @@ const Sidebar = () => {
   //Change color
   const changeColor = e => {
     let colorVal = e.target.value;
-
     dispatch({ type: "SET_COLOR", payload: colorVal });
-    
     setOpenColors(!openColors)
   };
+  
   return (
-    <div className="sidebar active">
+    <div className={!active ? "sidebar" : "sidebar active"}>
       <div className="sidebar__header">
         <Avatar />
         <h3 className="sidebar__header-name">Arex</h3>

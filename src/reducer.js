@@ -1,6 +1,6 @@
 export const initialState = {
   user: null,
-  active: false,
+  active: true,
   color: "blue",
   usersList: []
 };
