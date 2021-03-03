@@ -1,31 +1,13 @@
+@import "Variables";
 .sidebarChat{
-  display: flex;
-  padding: 20px;
+  @include button;
   margin: 20px;
-  cursor: pointer;
-  border-radius: 20px;
-  text-align: center;
-  justify-content: center;
-  z-index: 1;
-  position: relative;
-  transition: all 0.35s;
-  overflow: hidden;
-  color: rgba(53, 214, 240, 1);
-  border-left: 2px groove rgba(53, 214, 240, 1);
-  border-right: 2px groove rgb(239, 242, 243);
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+  box-shadow: $box-shadow;
+  @include theme;
+  border-right: 2px groove rgb(239, 242, 243) !important;
+  @include themeButton;
   &::after{
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    color: #fff;
-    -webkit-transition: all 1s;
-    transition: all 1s;
-    border-radius: inherit;
-    background: linear-gradient(61deg,rgba(53, 214, 240, 1) 0%,rgb(3, 20, 121) 100%);
+    @include button-after;
     opacity: 0.4;
     z-index: -1;
   }
@@ -37,23 +19,15 @@
     }
   }
   &.add{
+    @include button;
     width: 40px;
     height: 40px;
-    border-radius: 20px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    z-index: 1;
-    position: relative;
-    transition: all 0.35s;
-    overflow: hidden;
-    color: rgba(53, 214, 240, 1);
-    border: none;
-    border-left: 2px groove rgba(53, 214, 240, 1);
-    border-right: 2px groove rgb(239, 242, 243);
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
-
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: $box-shadow;
+    @include theme;
+    border-right: 2px groove rgb(239, 242, 243) !important;
+    @include themeButton;
   }
   &:hover > .sidebarChat__info{
     color:rgba(0, 0, 0, 1);

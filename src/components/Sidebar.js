@@ -7,6 +7,7 @@ import SearchOutlined from "@material-ui/icons/SearchOutlined";
 
 import SidebarChat from './SidebarChat'
 
+import {backgrounds} from './data'
 import '../styles/Sidebar.scss';
 
 const Sidebar = () => {
@@ -45,11 +46,11 @@ const Sidebar = () => {
         <SearchOutlined />
         <input type="text" placeholder="Find your chat" />
       </div>
-      <div className="sidebar__chats">
+      <div className={`sidebar__chats ${color}`}>
         <SidebarChat addNewChat />
 
         <SidebarChat />
-        <SidebarChat />
+        <SidebarChat bg={backgrounds[2]}/>
         <SidebarChat />
       </div>
     </div>

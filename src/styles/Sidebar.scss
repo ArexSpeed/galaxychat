@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import "Variables";
 
 .sidebar {
   display: flex;
@@ -67,9 +67,9 @@
   margin-bottom: 10px;
   height: 35px;
   border-radius: 5px;
-  color: rgb(53, 214, 240);
-  border-left: 2px groove rgb(239, 242, 243);
-  border-right: 2px groove rgb(239, 242, 243);
+  color: $white;
+  border-left: $border $white;
+  border-right: $border $white;
   box-shadow: 1px 1px 5px rgba(53, 214, 240, 0.1), -1px -1px 5px rgba(53, 214, 240, 0.1);
   & > .MuiSvgIcon-root{
     color: rgb(239, 242, 243);
@@ -89,5 +89,6 @@
   background: linear-gradient(60deg, #011113, #031f22);
   overflow: scroll;
   border-radius: 0 0 0px 20px;
+  @include themeBg;
 }
 
