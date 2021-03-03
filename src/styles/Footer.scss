@@ -3,10 +3,13 @@
   &__form{
     flex: 1;
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &__input{
     flex: 1;
-    font-family: "Russo One", sans-serif;
+    height: auto;
+    font-family: $font-family;
     border-radius: 10px;
     padding: 10px;
     border: none;
