@@ -15,6 +15,8 @@ const Sidebar = () => {
   const [{ user, active, color, usersList }, dispatch] = useStateValue();
   const [rooms, setRooms] = useState([])
   const [userRooms, setUserRooms] = useState([])
+  const [searchValue, setSearchValue] = useState('')
+  const [searchRooms, setSearchRooms] = useState([]) //users from search
 
   useEffect(() => {
     const unsubscribe = db.collection('rooms').onSnapshot(snapshot => (
@@ -41,6 +43,12 @@ const Sidebar = () => {
       room.users.length<1 ? setUserRooms(prev => [...prev,room]) : ''
     )
    }, [rooms])
+
+   const searchRoom = (e) => {
+    setSearchRooms([])
+    setSearchValue(e.target.value)
+    userRooms.map(room => room.name.toLowerCase().includes(searchValue.toLowerCase()) ? setSearchRooms(prev => [...prev,room]) : '')
+  }
 
 
   //Change color
@@ -73,14 +81,22 @@ const Sidebar = () => {
       </div>
       <div className="sidebar__search">
         <SearchOutlined />
-        <input type="text" placeholder="Find your chat" />
+        <input type="text" placeholder="Find your chat" onChange={(e) => searchRoom(e)}  />
       </div>
       <div className={`sidebar__chats ${color}`}>
         <SidebarChat addNewChat />
-
-        {userRooms.map(room => (
+        {searchValue ? (
+          searchRooms.map(room => (
             <SidebarChat key={room.id} id={room.id} name={room.name} bg={room.background} />
-         ))}
+         ))
+        )
+        : 
+        (
+          userRooms.map(room => (
+            <SidebarChat key={room.id} id={room.id} name={room.name} bg={room.background} />
+         ))
+        )
+        }
 
       </div>
     </div>
