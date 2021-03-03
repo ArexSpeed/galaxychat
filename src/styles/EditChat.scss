@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+.editChat{
+  &__form{
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    z-index: 1;
+    transition: all 0.35s;
+    overflow: hidden;
+    color: rgba(53, 214, 240, 1);
+    background: linear-gradient(60deg, #011113, #031f22);
+    border-left: 2px groove rgba(53, 214, 240, 1);
+    border-right: 2px groove rgb(239, 242, 243);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+  }
+  &__input{
+    color: rgba(53, 214, 240, 1);
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    text-align: center;
+    font-family: "Russo One", sans-serif;
+  }
+  &__button{
+    background: transparent;
+    border: none;
+    color: rgba(53, 214, 240, 1);
+    cursor: pointer;
+  }
+}
+
+
+/* Edit background */
+.editChatBg{
+  &__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: absolute;
+  width: 500px;
+  top: 45px;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  z-index: 1;
+  transition: all 0.35s;
+  overflow: hidden;
+  color: rgba(53, 214, 240, 1);
+  background: linear-gradient(60deg, #011113, #031f22);
+  border-left: 2px groove rgba(53, 214, 240, 1);
+  border-right: 2px groove rgb(239, 242, 243);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+}
+  &__wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    overflow: scroll;
+  }
+  &__item{
+    max-width: 250px;
+    max-height: 250px;
+    color:rgba(53, 214, 240, 1);
+    border-left: 2px groove rgba(53, 214, 240, 1);
+    border-right: 2px groove rgba(53, 214, 240, 1);
+    border-radius: 5px;
+    margin: 10px;
+    position: relative;
+  }
+
+  &__img{
+    max-width: 250px;
+    max-height: 250px;
+    overflow: hidden;
+  }
+  &__check{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color:inherit;
+  }
+  &__button {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+    min-width: 40px;
+    min-height: 40px;
+    font-family: "Russo One", sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    z-index: 1;
+    position: relative;
+    transition: all 0.35s;
+    overflow: hidden;
+    color: rgb(75, 240, 53);
+    background:rgba(34, 107, 24, 0.5);
+    border-left: 2px groove rgb(75, 240, 53);
+    border-right: 2px groove rgb(75, 240, 53);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+  }
+}
+

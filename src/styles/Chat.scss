@@ -7,7 +7,7 @@
   border-radius: 20px;
   font-family: "Russo One", sans-serif;
   @media screen and (max-width: 768px) {
-      flex: 1;
+    flex: 1;
     &.active {
       display: none;
     }
@@ -19,25 +19,73 @@
   display: flex;
   align-items: center;
   color: #fff;
-  &-info{
+  &-switch {
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+    font-family: "Russo One", sans-serif;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+    justify-content: center;
+    z-index: 1;
+    position: relative;
+    transition: all 0.35s;
+    overflow: hidden;
+    color: rgba(53, 214, 240, 1);
+    background: linear-gradient(60deg, #011113, #031f22);
+    border: none;
+    border-left: 2px groove rgba(53, 214, 240, 1);
+    border-right: 2px groove rgb(239, 242, 243);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+    &::after{
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      color: #fff;
+      -webkit-transition: all 0.35s;
+      transition: all 0.35s;
+      border-radius: inherit;
+      background: linear-gradient(
+        61deg,
+        rgba(53, 214, 240, 1) 0%,
+        rgb(3, 20, 121) 100%
+      );
+      z-index: -1;
+    }
+    &:hover{
+      color: #202124;
+      &::after{
+        color: black;
+        width: 100%;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+  &-info {
     flex: 1;
     padding-left: 20px;
-    & > h3{
+    & > h3 {
       margin-bottom: 3px;
       font-weight: 500;
     }
-    & > p{
+    & > p {
       color: gray;
     }
   }
-  &-right{
+  &-right {
     display: flex;
     justify-content: space-between;
     min-width: 100px;
   }
 }
 
-.chat__body{
+.chat__body {
   flex: 1;
   background: #222;
   padding: 30px;
@@ -50,7 +98,116 @@
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  background:#000;
+  background: #000;
   border-top: 2px groove rgb(75, 240, 53);
   border-bottom-right-radius: 10px;
+}
+
+// Add Users
+.chat__addUsers{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 45px;
+  right: 0;
+  border-radius: 10px;
+  max-height: 50vh;
+  width: 300px;
+  font-family: "Russo One", sans-serif;
+  background: linear-gradient(60deg, #011113, #031f22);
+  border-left: 2px groove rgba(53, 214, 240, 1);
+  border-right: 2px groove rgb(239, 242, 243);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+  overflow-y: scroll;
+  color: #fff;
+  z-index: 10;
+  &-input{
+    display: none;
+    & + .chat__addUsers-label{
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 10px;
+      text-align: center;
+      justify-content: center;
+      z-index: 1;
+      position: relative;
+      transition: all 0.35s;
+      color:rgba(53, 214, 240, 1);
+      border-top: 2px groove rgba(53, 214, 240, 1);
+      border-bottom: 2px groove rgba(53, 214, 240, 1);
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+    }
+    &:not(:checked) + .chat__addUsers-label:hover{
+      box-shadow: 0px 1px 3px;
+      background: rgba(53, 214, 240, 1);
+      color: #000;
+    }
+    &:checked + .chat__addUsers-label  {
+      background: rgba(53, 214, 240, 1);
+      color: #000;
+    }
+  }
+  &-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    &-add, 
+    &-cancel{
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      margin: 10px 5px;
+      min-width: 40px;
+      min-height: 40px;
+      font-family: "Russo One", sans-serif;
+      cursor: pointer;
+      border: none;
+      border-radius: 20px;
+      z-index: 1;
+      position: relative;
+      transition: all 0.35s;
+      overflow: hidden;
+      color: rgb(75, 240, 53);
+      background:rgba(34, 107, 24, 0.5);
+      border-left: 2px groove rgb(75, 240, 53);
+      border-right: 2px groove rgb(75, 240, 53);
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+      &::after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        color: #fff;
+        -webkit-transition: all 0.35s;
+        transition: all 0.35s;
+        border-radius: inherit;
+        background: linear-gradient(61deg,rgb(75, 240, 53) 0%, rgb(60, 121, 3) 100%);
+        z-index: -1;
+      }
+      &:hover{
+        color: #202124;
+        &::after{
+          color: black;
+          width: 100%;
+        }
+      }
+    }
+    &-cancel{
+      background: rgba(161, 7, 7, 0.5);
+      color:rgba(0, 0, 0, 1);
+      border-left: 2px groove rgb(240, 53, 78);
+      border-right: 2px groove rgb(240, 53, 78);
+      &::after{
+        background: linear-gradient(61deg,rgb(240, 53, 78) 0%,rgb(121, 11, 3) 100%);
+      }
+    }
+  }
 }
