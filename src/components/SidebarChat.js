@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
-import { Avatar, IconButton } from "@material-ui/core";
+import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 import AddIcon from '@material-ui/icons/Add';
 import AddChat from './AddChat';
@@ -8,13 +8,13 @@ import AddChat from './AddChat';
 import '../styles/SidebarChat.scss'
 
 const SidebarChat = ({addNewChat, id, bg}) => {
-  const [{ color }, dispatch] = useStateValue();
+  const [{ active,color }, dispatch] = useStateValue();
   const [openAddChat, setOpenAddChat] = useState(false);
 
 
 
   return !addNewChat ? (
-    <Link to={`/rooms/${id}`} onClick={() => console.log('click')}>
+    <Link to={`/rooms/${id}`} onClick={() => dispatch({ type: actionTypes.SET_ACTIVE, payload: !active })}>
       <div className={`sidebarChat ${color}`} style={{background: bg ? `url(${bg}) no-repeat center center / cover` : `transparent`}}>
 
       <div className="sidebarChat__info">

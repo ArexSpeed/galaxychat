@@ -1,6 +1,6 @@
 export const initialState = {
   user: null,
-  active: true,
+  active: false,
   color: "blue",
   usersList: []
 };
@@ -14,22 +14,22 @@ export const actionTypes = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case actionTypes.SET_USER:
+    case "SET_USER":
       return {
         ...state,
         user: action.payload
       };
-    case actionTypes.SET_ACTIVE:
+    case "SET_ACTIVE":
       return {
         ...state,
         active: action.payload
       };
-    case actionTypes.SET_COLOR:
+    case "SET_COLOR":
       return {
         ...state,
         color: action.payload
       };
-    case actionTypes.SET_USERS_LIST:
+    case "SET_USERS_LIST":
         return {
           ...state,
           usersList: action.payload

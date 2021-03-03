@@ -1,15 +1,16 @@
 import React, {useState, useEffect}  from 'react'
+import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
+
 import Messages from './Messages';
 import EditChat from './EditChat';
 import EditChatBg from './EditChatBg';
-import { Avatar, IconButton } from "@material-ui/core";
+import Footer from './Footer';
+
+import { IconButton } from "@material-ui/core";
 import ListIcon from '@material-ui/icons/List';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import EditIcon from '@material-ui/icons/Edit';
-import ImageIcon from '@material-ui/icons/Image';
-import Footer from './Footer';
 
 import "../styles/Chat.scss";
 
@@ -28,11 +29,13 @@ const Chat = () => {
       </>  
   )
 
+
   return (
     <div className={!active ? "chat active" : "chat"}>
       <div className="chat__header">
-        <div className={`chat__header-switch ${color}`}>
-          <ListIcon />
+        <div onClick={() => dispatch({ type: actionTypes.SET_ACTIVE, payload: !active })}
+         className={`chat__header-switch ${color}`}>
+          <ListIcon  />
         </div>
         <IconButton>
             <EditChat room={'room'} />
