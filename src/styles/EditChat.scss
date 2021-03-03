@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
-
+@import "Variables";
 .editChat{
   &__form{
     position: absolute;
@@ -28,7 +27,7 @@
     border: none;
     font-size: 24px;
     text-align: center;
-    font-family: "Russo One", sans-serif;
+    font-family: $font-family;
   }
   &__button{
     background: transparent;
@@ -95,28 +94,25 @@
     color:inherit;
   }
   &__button {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin: auto;
-    margin-top: 20px;
-    min-width: 40px;
-    min-height: 40px;
-    font-family: "Russo One", sans-serif;
-    cursor: pointer;
-    border: none;
-    border-radius: 20px;
-    z-index: 1;
-    position: relative;
-    transition: all 0.35s;
-    overflow: hidden;
+    @include button;
     color: rgb(75, 240, 53);
     background:rgba(34, 107, 24, 0.5);
-    border-left: 2px groove rgb(75, 240, 53);
-    border-right: 2px groove rgb(75, 240, 53);
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+    border-left: $border $green;
+    border-right: $border $green;
+    box-shadow: $box-shadow;
+    &::after{
+      @include button-after;
+      background: $background-green;
+      z-index: -1;
+    }
+    &:hover{
+      color: #202124;
+      &::after{
+        color: black;
+        width: 100%;
+      }
+    }
+
   }
 }
 

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import "Variables";
 
 .addChat__container{
   position: fixed;
@@ -118,19 +119,7 @@
 
 }
 .addChat__add, .addChat__cancel {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  margin: auto;
-  margin-top: 20px;
-  min-width: 40px;
-  min-height: 40px;
-  font-family: "Russo One", sans-serif;
-  cursor: pointer;
-  border: none;
-  border-radius: 20px;
+  @include button;
   color: rgb(75, 240, 53);
   background:rgba(34, 107, 24, 0.5);
   border-left: 2px groove rgb(75, 240, 53);
@@ -141,15 +130,7 @@
   position: relative;
   z-index: 1;
   &::after{
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    color: #fff;
-    transition: all 0.35s;
-    border-radius: inherit;
+    @include button-after;
     background: linear-gradient( 61deg,rgb(75, 240, 53) 0%,rgb(60, 121, 3) 100%);
     z-index: -1;
   }

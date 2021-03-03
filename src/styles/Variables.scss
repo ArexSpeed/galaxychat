@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+$green: rgba(75, 240, 53,1);
+$blue: rgba(53, 214, 240, 1);
+$red: rgb(240, 53, 78);
+$white: rgb(239, 242, 243);
+$background-green: linear-gradient(60deg, #011113, #032207);
+$background-blue: linear-gradient(60deg, #011113, #031f22);
+$background-red: linear-gradient(60deg, #130103, #240305);
+$border: 2px groove;
+$box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
+$font-family: "Russo One", sans-serif;
+
+@mixin button{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 10px 5px;
+    min-width: 40px;
+    min-height: 40px;
+    font-family: $font-family;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    z-index: 1;
+    position: relative;
+    transition: all 0.35s;
+    overflow: hidden;
+}
+@mixin button-after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #fff;
+  transition: all 0.35s;
+  border-radius: inherit;
+}

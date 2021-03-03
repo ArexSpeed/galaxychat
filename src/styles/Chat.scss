@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
+@import "Variables";
 .chat {
   display: flex;
   flex: 0.65;
   flex-direction: column;
   border-radius: 20px;
-  font-family: "Russo One", sans-serif;
+  font-family: $font-family;
   @media screen and (max-width: 768px) {
     flex: 1;
     &.active {
@@ -20,18 +20,7 @@
   align-items: center;
   color: #fff;
   &-switch {
-    display: flex;
-    padding: 20px;
-    margin: 20px;
-    font-family: "Russo One", sans-serif;
-    cursor: pointer;
-    border-radius: 20px;
-    text-align: center;
-    justify-content: center;
-    z-index: 1;
-    position: relative;
-    transition: all 0.35s;
-    overflow: hidden;
+    @include button;
     color: rgba(53, 214, 240, 1);
     background: linear-gradient(60deg, #011113, #031f22);
     border: none;
@@ -39,16 +28,7 @@
     border-right: 2px groove rgb(239, 242, 243);
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 1), -1px -1px 10px rgba(0, 0, 0, 1);
     &::after{
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      color: #fff;
-      -webkit-transition: all 0.35s;
-      transition: all 0.35s;
-      border-radius: inherit;
+      @include button-after;
       background: linear-gradient(
         61deg,
         rgba(53, 214, 240, 1) 0%,
@@ -115,7 +95,7 @@
   border-radius: 10px;
   max-height: 50vh;
   width: 300px;
-  font-family: "Russo One", sans-serif;
+  font-family: $font-family;
   background: linear-gradient(60deg, #011113, #031f22);
   border-left: 2px groove rgba(53, 214, 240, 1);
   border-right: 2px groove rgb(239, 242, 243);
@@ -157,22 +137,7 @@
     align-items: center;
     &-add, 
     &-cancel{
-      display: flex;
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      margin: 10px 5px;
-      min-width: 40px;
-      min-height: 40px;
-      font-family: "Russo One", sans-serif;
-      cursor: pointer;
-      border: none;
-      border-radius: 20px;
-      z-index: 1;
-      position: relative;
-      transition: all 0.35s;
-      overflow: hidden;
+      @include button;
       color: rgb(75, 240, 53);
       background:rgba(34, 107, 24, 0.5);
       border-left: 2px groove rgb(75, 240, 53);

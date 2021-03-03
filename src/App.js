@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Sidebar from './components/Sidebar'
 import Chat from './components/Chat'
 import Login from './components/Login'
+import { useStateValue } from "./StateProvider";
 import './App.css';
 
 function App() {
+  const [{ user, color }, dispatch] = useStateValue();
   return (
     <div className="app">
-     <div className={`app__body`}>
+     <div className={`app__body ${color}`}>
           <Router>
             <Sidebar />
             <Switch>
