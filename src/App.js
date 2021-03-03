@@ -10,7 +10,12 @@ function App() {
   const [{ user, color }, dispatch] = useStateValue();
   return (
     <div className="app">
-     <div className={`app__body ${color}`}>
+      {!user ? (
+        <Login />
+      )
+    :
+    (
+    <div className={`app__body ${color}`}>
           <Router>
             <Sidebar />
             <Switch>
@@ -22,8 +27,11 @@ function App() {
               </Route>
             </Switch>
           </Router>
-        </div>
     </div>
+    )
+    }
+        </div>
+     
   );
 }
 

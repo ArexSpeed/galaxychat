@@ -1,0 +1,54 @@
+@import "Variables";
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  color: rgba(53, 214, 240, 1);
+  &__container{
+    padding: 100px;
+    text-align: center;
+    background: linear-gradient(60deg, #011113, #031f22);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.12);
+    border-left: 5px groove rgba(53, 214, 240, 1);
+    border-right: 5px groove rgb(239, 242, 243);
+    color: rgba(53, 214, 240, 1);
+  }
+  &__button{
+    @include button;
+    margin: 20px auto;
+    color: $white;
+    border-radius: 10px;
+    border-top: 2px groove rgba(53, 214, 240, 1);
+    border-bottom: 2px groove rgb(239, 242, 243);
+    background: transparent;
+    &::after{
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      transition: all 0.35s;
+      border-radius: inherit;
+      background: linear-gradient(
+        180deg,
+        rgba(53, 214, 240, 1) 0%,
+        rgb(255, 255, 255) 100%
+      );
+      z-index: -1;
+    }
+    &:hover{
+      color: #202124;
+      &::after{
+        color: black;
+        height: 100%;
+      }
+    }
+  }
+}
+
+
+
+
