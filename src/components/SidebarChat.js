@@ -32,7 +32,7 @@ const SidebarChat = ({addNewChat, id,name, bg}) => {
 
       <div className="sidebarChat__info">
         <h2>{name}</h2>
-        <p>{messages[0]?.message}</p>
+        <p>{messages[0]?.message.slice(0,100)}</p>
       </div>
     </div>
     </Link>

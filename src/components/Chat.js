@@ -98,6 +98,7 @@ const deleteUserFromRoom = (user) => {
         <IconButton>
             <EditChatBg room={roomId} />
         </IconButton>
+        {usersInRoom.length>0 && 
           <IconButton>
           <GroupAddIcon onClick={() => setOpenAddUsers(!openAddUsers)}/>
             {openAddUsers && (
@@ -110,6 +111,7 @@ const deleteUserFromRoom = (user) => {
               </div>
             )}
           </IconButton>
+          }
           <IconButton>
             <MoreVertIcon />
           </IconButton>
